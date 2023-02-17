@@ -61,7 +61,7 @@
         <dt class="col-sm-3">Browser Platform</dt>
         <dd class="col-sm-9" id="browser-platform">Unknown</dd>
         <dt class="col-sm-3">Browser Data Storage</dt>
-        <dd class="col-sm-9" id="browser-dataStorage">Unknown</dd>
+        <dd class="col-sm-9" id="browser-dataStorage text-truncate">Unknown</dd>
         <dt class="col-sm-3">Latitude</dt>
         <dd class="col-sm-9" id="latitude">Unknown</dd>
         <dt class="col-sm-3">Longitude</dt>
@@ -142,23 +142,23 @@
 // document.write(info.scrColorDepth());
 // document.write(info.scrPixelDepth());
 navigator.geolocation.getCurrentPosition((position) => {
-    document.getElementById("latitude").innerHTML = `<b>Latitude:</b> ${position.coords.latitude} with ${position.coords.accuracy}% accuracy`;
-    document.getElementById("longitude").innerHTML = `<b>Longitude:</b> ${position.coords.longitude} with ${position.coords.accuracy}% accuracy`;
+    document.getElementById("latitude").innerHTML = `${position.coords.latitude} with ${position.coords.accuracy}% accuracy`;
+    document.getElementById("longitude").innerHTML = `${position.coords.longitude} with ${position.coords.accuracy}% accuracy`;
     // document.getElementById("altitude").innerHTML = `<b>Altitude:</b> ${position.timestamp}`;
     // document.getElementById("heading").innerHTML = `<b>Heading:</b> ${position.coords.heading}`;
 });
-document.getElementById("opened").innerHTML = `<b>Opened at:</b> ${info.timeOpened}`;
-document.getElementById("browser-name").innerHTML = `<b>Browser Name:</b> ${info.browserName()}`;
-document.getElementById("browser-engine").innerHTML = `<b>Browser Engine:</b> ${info.browserEngine()}`;
-document.getElementById("browser-version").innerHTML = `<b>Browser Version:</b> ${info.browserVersion1a()}`;
-document.getElementById("browser-language").innerHTML = `<b>Browser Language:</b> ${info.browserLanguage()}`;
-document.getElementById("browser-online").innerHTML = `<b>Browser Online:</b> ${info.browserOnline()}`;
-document.getElementById("browser-platform").innerHTML = `<b>Browser Platform:</b> ${info.browserPlatform()}`;
+document.getElementById("opened").innerHTML = `${info.timeOpened}`;
+document.getElementById("browser-name").innerHTML = `${info.browserName()}`;
+document.getElementById("browser-engine").innerHTML = `${info.browserEngine()}`;
+document.getElementById("browser-version").innerHTML = `${info.browserVersion1a()}`;
+document.getElementById("browser-language").innerHTML = `${info.browserLanguage()}`;
+document.getElementById("browser-online").innerHTML = `${info.browserOnline()}`;
+document.getElementById("browser-platform").innerHTML = `${info.browserPlatform()}`;
 dataStorageString = "";
 for (item in info.dataStorage()) {
     dataStorageString += "\n" + item;
 }
-document.getElementById("browser-dataStorage").innerHTML = `<b>Browser Data Storage:</b> ${dataStorageString}`;
+document.getElementById("browser-dataStorage").innerHTML = `${dataStorageString}`;
 //getIPs().then(res => document.getElementById("ip").innerHTML = `<b>IP Address:</b> ${res}`);
 $.getJSON("https://api.ipify.org?format=json", function(data) {
 
