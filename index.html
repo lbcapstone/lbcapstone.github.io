@@ -20,8 +20,8 @@
     <p id="longitude"><b>Longitude: </b>Unknown</p>
     <p id="altitude"><b>Altitude: </b>Unknown</p>
     <p id="heading"><b>Heading: </b>Unknown</p>
-    <p id="ip"><b>IP Address: </b>Unknown</p>
-    <p id="location"><b>Location:</b>Unknown</p>
+    <p id="ip"><b>IP Address: </b><p id="ip-inside">Unknown</p></p>
+    <p id="location"><b>Location: </b>Unknown</p>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 <script src="https://cdn.jsdelivr.net/gh/joeymalvinni/webrtc-ip/dist/bundle.dev.js"></script>
@@ -95,7 +95,7 @@ document.getElementById("browser-dataStorage").innerHTML = `<b>Browser Data Stor
 $.getJSON("https://api.ipify.org?format=json", function(data) {
 
     // Setting text of element P with id gfg
-    $("#ip").html(data.ip);
+    $("#ip-inside").html(data.ip);
 })
 </script>
 </html>
