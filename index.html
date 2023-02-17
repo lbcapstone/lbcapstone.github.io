@@ -62,14 +62,14 @@
         <dd class="col-sm-9" id="browser-platform">Unknown</dd>
         <dt class="col-sm-3">Browser Data Storage</dt>
         <dd class="col-sm-9" id="browser-dataStorage text-truncate">Unknown</dd>
-        <dt class="col-sm-3">Latitude</dt>
+<!--         <dt class="col-sm-3">Latitude</dt>
         <dd class="col-sm-9" id="latitude">Unknown</dd>
         <dt class="col-sm-3">Longitude</dt>
         <dd class="col-sm-9" id="longitude">Unknown</dd>
         <dt class="col-sm-3">Altitude</dt>
         <dd class="col-sm-9" id="altitude">Unknown</dd>
         <dt class="col-sm-3">Heading</dt>
-        <dd class="col-sm-9" id="heading">Unknown</dd>
+        <dd class="col-sm-9" id="heading">Unknown</dd> -->
         <dt class="col-sm-3">IP Address</dt>
         <dd class="col-sm-9" id="ip">Unknown</dd>
         <dt class="col-sm-3">Location</dt>
@@ -141,12 +141,12 @@
 // document.write(info.sizeInH());
 // document.write(info.scrColorDepth());
 // document.write(info.scrPixelDepth());
-navigator.geolocation.getCurrentPosition((position) => {
-    document.getElementById("latitude").innerHTML = `${position.coords.latitude} with ${position.coords.accuracy}% accuracy`;
-    document.getElementById("longitude").innerHTML = `${position.coords.longitude} with ${position.coords.accuracy}% accuracy`;
-    // document.getElementById("altitude").innerHTML = `<b>Altitude:</b> ${position.timestamp}`;
-    // document.getElementById("heading").innerHTML = `<b>Heading:</b> ${position.coords.heading}`;
-});
+// navigator.geolocation.getCurrentPosition((position) => {
+//     document.getElementById("latitude").innerHTML = `${position.coords.latitude} with ${position.coords.accuracy}% accuracy`;
+//     document.getElementById("longitude").innerHTML = `${position.coords.longitude} with ${position.coords.accuracy}% accuracy`;
+//     // document.getElementById("altitude").innerHTML = `<b>Altitude:</b> ${position.timestamp}`;
+//     // document.getElementById("heading").innerHTML = `<b>Heading:</b> ${position.coords.heading}`;
+// });
 document.getElementById("opened").innerHTML = info.timeOpened;
 document.getElementById("browser-name").innerHTML = info.browserName();
 document.getElementById("browser-engine").innerHTML = info.browserEngine();
