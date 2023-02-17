@@ -147,22 +147,20 @@ navigator.geolocation.getCurrentPosition((position) => {
     // document.getElementById("altitude").innerHTML = `<b>Altitude:</b> ${position.timestamp}`;
     // document.getElementById("heading").innerHTML = `<b>Heading:</b> ${position.coords.heading}`;
 });
-document.getElementById("opened").innerHTML = `${info.timeOpened}`;
-document.getElementById("browser-name").innerHTML = `${info.browserName()}`;
-document.getElementById("browser-engine").innerHTML = `${info.browserEngine()}`;
-document.getElementById("browser-version").innerHTML = `${info.browserVersion1a()}`;
-document.getElementById("browser-language").innerHTML = `${info.browserLanguage()}`;
-document.getElementById("browser-online").innerHTML = `${info.browserOnline()}`;
-document.getElementById("browser-platform").innerHTML = `${info.browserPlatform()}`;
+document.getElementById("opened").innerHTML = info.timeOpened;
+document.getElementById("browser-name").innerHTML = info.browserName();
+document.getElementById("browser-engine").innerHTML = info.browserEngine();
+document.getElementById("browser-version").innerHTML = info.browserVersion1a();
+document.getElementById("browser-language").innerHTML = info.browserLanguage();
+document.getElementById("browser-online").innerHTML = info.browserOnline();
+document.getElementById("browser-platform").innerHTML = info.browserPlatform();
 dataStorageString = "";
 for (item in info.dataStorage()) {
-    dataStorageString += "\n" + item;
+    dataStorageString += item + ", ";
 }
-document.getElementById("browser-dataStorage").innerHTML = `${dataStorageString}`;
+document.getElementById("browser-dataStorage").innerHTML = dataStorageString;
 //getIPs().then(res => document.getElementById("ip").innerHTML = `<b>IP Address:</b> ${res}`);
 $.getJSON("https://api.ipify.org?format=json", function(data) {
-
-    // Setting text of element P with id gfg
     $("#ip").html(data.ip);
 })
 </script>
