@@ -62,7 +62,7 @@
           <dt class="col-sm-3">Browser Platform</dt>
           <dd class="col-sm-9" id="browser-platform">Unknown</dd>
           <dt class="col-sm-3">Browser Data Storage</dt>
-          <dd class="col-sm-9" id="browser-dataStorage text-truncate">Unknown</dd>
+          <dd class="col-sm-9" id="browser-dataStorage">Unknown</dd>
   <!--         <dt class="col-sm-3">Latitude</dt>
           <dd class="col-sm-9" id="latitude">Unknown</dd>
           <dt class="col-sm-3">Longitude</dt>
@@ -145,13 +145,10 @@ dataStorageString = "";
 for (item in info.dataStorage()) {
     dataStorageString += item + ", ";
 }
-alert(dataStorageString);
 document.getElementById("browser-dataStorage").innerHTML = dataStorageString;
 //getIPs().then(res => document.getElementById("ip").innerHTML = `<b>IP Address:</b> ${res}`);
 $.getJSON("https://api.ipify.org?format=json", function(data) {
-  alert(data.ip);
   $("#ip").html(data.ip);
 });
-$("#ip").html("<h1>WOW></h1>");
 </script>
 </html>
