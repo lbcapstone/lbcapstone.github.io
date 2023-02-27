@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone - Your Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Capstone</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="data.html">Data</a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+              </ul>
+    <!--           <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form> -->
+            </div>
+          </div>
+        </nav>
+
+    <dl class="row">
+        <dt class="col-sm-3">Opened At</dt>
+        <dd class="col-sm-9" id="opened">Unknown</dd>
+        <dt class="col-sm-3">Browser Name</dt>
+        <dd class="col-sm-9" id="browser-name">Unknown</dd>
+        <dt class="col-sm-3">Browser Engine</dt>
+        <dd class="col-sm-9" id="browser-engine">Unknown</dd>
+        <dt class="col-sm-3">Browser Version</dt>
+        <dd class="col-sm-9" id="browser-version">Unknown</dd>
+        <dt class="col-sm-3">Browser Language</dt>
+        <dd class="col-sm-9" id="browser-language">Unknown</dd>
+        <dt class="col-sm-3">Browser Online</dt>
+        <dd class="col-sm-9" id="browser-online">Unknown</dd>
+        <dt class="col-sm-3">Browser Platform</dt>
+        <dd class="col-sm-9" id="browser-platform">Unknown</dd>
+        <dt class="col-sm-3">Browser Data Storage</dt>
+        <dd class="col-sm-9" id="browser-dataStorage text-truncate">Unknown</dd>
+<!--         <dt class="col-sm-3">Latitude</dt>
+        <dd class="col-sm-9" id="latitude">Unknown</dd>
+        <dt class="col-sm-3">Longitude</dt>
+        <dd class="col-sm-9" id="longitude">Unknown</dd>
+        <dt class="col-sm-3">Altitude</dt>
+        <dd class="col-sm-9" id="altitude">Unknown</dd>
+        <dt class="col-sm-3">Heading</dt>
+        <dd class="col-sm-9" id="heading">Unknown</dd> -->
+        <dt class="col-sm-3">IP Address</dt>
+        <dd class="col-sm-9" id="ip">Unknown</dd>
+        <dt class="col-sm-3">Location</dt>
+        <dd class="col-sm-9" id="location">Unknown</dd>
+    </dl>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/gh/joeymalvinni/webrtc-ip/dist/bundle.dev.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var info= {
+    timeOpened:new Date(),
+    timezone:(new Date()).getTimezoneOffset()/60,
+    pageon(){return window.location.pathname},
+    referrer(){return document.referrer},
+    previousSites(){return history.length},
+    browserName(){return navigator.appName},
+    browserEngine(){return navigator.product},
+    browserVersion1a(){return navigator.appVersion},
+    browserVersion1b(){return navigator.userAgent},
+    browserLanguage(){return navigator.language},
+    browserOnline(){return navigator.onLine},
+    browserPlatform(){return navigator.platform},
+    javaEnabled(){return navigator.javaEnabled()},
+    dataCookiesEnabled(){return navigator.cookieEnabled},
+    dataCookies1(){return document.cookie},
+    dataCookies2(){return decodeURIComponent(document.cookie.split(";"))},
+    dataStorage(){return localStorage},
+    sizeScreenW(){return screen.width},
+    sizeScreenH(){return screen.height},
+    sizeDocW(){return document.width},
+    sizeDocH(){return document.height},
+    sizeInW(){return innerWidth},
+    sizeInH(){return innerHeight},
+    sizeAvailW(){return screen.availWidth},
+    sizeAvailH(){return screen.availHeight},
+    scrColorDepth(){return screen.colorDepth},
+    scrPixelDepth(){return screen.pixelDepth},
+    latitude(){return position.coords.latitude},
+    longitude(){return position.coords.longitude},
+    accuracy(){return position.coords.accuracy},
+    altitude(){return position.coords.altitude},
+    altitudeAccuracy(){return position.coords.altitudeAccuracy},
+    heading(){return position.coords.heading},
+    speed(){return position.coords.speed},
+    timestamp(){return position.timestamp},
+};
+// document.write(info.pageon());
+// document.write(info.accuracy());
+// document.write(info.altitude());
+// document.write(info.altitudeAccuracy());
+// document.write(info.heading());
+// document.write(info.sizeInW());
+// document.write(info.sizeInH());
+// document.write(info.scrColorDepth());
+// document.write(info.scrPixelDepth());
+// navigator.geolocation.getCurrentPosition((position) => {
+//     document.getElementById("latitude").innerHTML = `${position.coords.latitude} with ${position.coords.accuracy}% accuracy`;
+//     document.getElementById("longitude").innerHTML = `${position.coords.longitude} with ${position.coords.accuracy}% accuracy`;
+//     // document.getElementById("altitude").innerHTML = `<b>Altitude:</b> ${position.timestamp}`;
+//     // document.getElementById("heading").innerHTML = `<b>Heading:</b> ${position.coords.heading}`;
+// });
+document.getElementById("opened").innerHTML = info.timeOpened;
+document.getElementById("browser-name").innerHTML = info.browserName();
+document.getElementById("browser-engine").innerHTML = info.browserEngine();
+document.getElementById("browser-version").innerHTML = info.browserVersion1a();
+document.getElementById("browser-language").innerHTML = info.browserLanguage();
+document.getElementById("browser-online").innerHTML = info.browserOnline();
+document.getElementById("browser-platform").innerHTML = info.browserPlatform();
+dataStorageString = "";
+for (item in info.dataStorage()) {
+    dataStorageString += item + ", ";
+}
+document.getElementById("browser-dataStorage").innerHTML = dataStorageString;
+//getIPs().then(res => document.getElementById("ip").innerHTML = `<b>IP Address:</b> ${res}`);
+$.getJSON("https://api.ipify.org?format=json", function(data) {
+    $("#ip").html(data.ip);
+})
+</script>
+</html>
