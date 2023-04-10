@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data Collection Demo</title>
+</head>
+<body>
+	<h1>Data Collection Demo</h1>
+	<p>Welcome to our educational website on data collection techniques.</p>
+	<h2>Cookies</h2>
+	<p>We use cookies to personalize content and ads, to provide social media features, and to analyze our traffic. By continuing to browse the site, you are agreeing to our use of cookies.</p>
+	<button onclick="setCookie()">Accept Cookies</button>
+	<script>
+		function setCookie() {
+			document.cookie = "cookieConsent=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+			alert("Cookies accepted.");
+		}
+	</script>
+	<h2>Tracking Pixels</h2>
+	<img src="https://www.example.com/tracking-pixel.png" alt="Tracking Pixel">
+	<p>This is a tracking pixel that we use to analyze user behavior on our website.</p>
+	<h2>APIs</h2>
+	<p>We use the OpenWeatherMap API to display the current weather in your location.</p>
+	<p id="weather"></p>
+	<script>
+		fetch("https://api.openweathermap.org/data/2.5/weather?q=New%20York&appid=da5d77dea851f033b092cad86f2c8e63")
+			.then(response => response.json())
+			.then(data => {
+				const weather = data.weather[0].description;
+				document.getElementById("weather").innerHTML = `Current weather: ${weather}`;
+			})
+			.catch(error => console.log(error));
+	</script>
+	<h2>JavaScript Code</h2>
+	<p>We use JavaScript to track user clicks on our website.</p>
+	<script>
+		let clickCount = 0;
+		document.addEventListener("click", () => {
+			clickCount++;
+			console.log(`User clicked ${clickCount} times.`);
+		});
+	</script>
+</body>
+</html>
