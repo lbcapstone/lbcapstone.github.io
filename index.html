@@ -48,6 +48,8 @@
     
     <div class="section">
       <h2>Geolocation</h2>
+      <p class="label">Location:</p>
+      <p id="location"></p>
       <p class="label">Latitude:</p>
       <p id="latitude"></p>
       <p class="label">Longitude:</p>
@@ -121,6 +123,9 @@
       <p id="connection-speed"></p>
       <p>Finally, there is information about networking. Networking information is important because it can be used to track how exactly you are connecting to the internet. This shows the type of connection, a wifi, cellular, or ethernet connection, and the approximate connection speed, in megabytes per second. The connection type might display as 'Unknown', meaning that the browser does not support giving that information to websites, which does show a way in which browsers can block websites from information that they probably don't need.</p>
     </div>
+
+    <p>Fully, much of this information doesn't seem that bad. However, combining the more worying types of information, like locational and browser informtion, with other kinds of information can create a profile on a person. From there, companies are easily able to predict your movements, actions, and choices, allowing them to optimize with this data for their own benifit. Of course, there is no active harm being done to you, the user, because of this, but it is incredibly important that you know about this, as well as the solutions to these problems.</p>
+    <p>Firstly, you can disable javascript. Most of the information that was taken from this website was through the use of javascript. This is basically just code that can run on the client side of a website, meaning that it has direct access to user data. Disabling javascript is available in most browsers. However, disabling this can also mess with websites that require Javascript, making them not function as they should.</p>
   </div>
   
   <script>
@@ -132,17 +137,18 @@
 
     // Screen Resolution
     document.getElementById('screen-resolution').textContent = screen.width + ' x ' + screen.height;
-
+    
     let ip = "";
-        $.getJSON("https://api.ipify.org?format=json", function(data) {
-         
-         // Setting text of element P with id gfg
-         ip = data.ip;
-        })
-        
-        fetch(`https://ipapi.co/${ip}/json/`).then(function(response) {
-            response.json().then(jsonData => {
-                console.log(jsonData)
+    $.getJSON("https://api.ipify.org?format=json", function(data) {
+      
+      // Setting text of element P with id gfg
+      ip = data.ip;
+    })
+    
+    fetch(`https://ipapi.co/${ip}/json/`).then(function(response) {
+      response.json().then(jsonData => {
+        console.log(jsonData)
+                document.getElementById('location').textContent = jsonData.city + ', ' + jsonData.region_code;
                 document.getElementById('latitude').textContent = jsonData.latitude;
                 document.getElementById('longitude').textContent = jsonData.longitude;
             })
