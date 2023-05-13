@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        let ip = "";
+        $.getJSON("https://api.ipify.org?format=json", function(data) {
+         
+         // Setting text of element P with id gfg
+         ip = data.ip;
+         $("#gfg").html(data.ip);
+        })
+        
+        fetch(`https://ipapi.co/${ip}/json/`).then(function(response) {
+            response.json().then(jsonData => {
+                console.log(jsonData)
+                document.getElementById("city").innerHTML = `<p id="city">You live in ${jsonData.city} in the ${jsonData.country_name}</p>`
+                document.getElementById("lat").innerHTML = `<p id="lat">Your latitude and longitude are ${jsonData.latitude}, ${jsonData.longitude}</p>`
+            })
+        }).catch(function(error) {
+            console.log(error)
+        })
+
+        let refer = document.referrer;
+        if (refer === "") {
+            //document.getElementById("referr").innerHTML = `<p id="referr">You didn't come from a website beforehand</p>`
+        } else {
+            document.getElementById("referr").innerHTML = `<p id="referr">You came from ${document.referrer}</p>`
+        }
+
+        console.log(window.history[0]);
+    </script>
+</head>
+<body>
+    <center>
+        <h3>Public IP Address of user is:</h3>
+        <p id="gfg"></p>
+        <p>What does this mean? This is your IP address, a number that links your specific device to the internet. From this, we can find many different pieces of important information. For instance: </p>
+        <p id="city"></p>
+        <p id="lat"></p>
+        <p>Even using completely normal code, which doesn't require any sort of allowance from the user, a website can even find out what website you just came from. </p>
+        <p id="referr"></p>
+        <p>There are some solutions for this problems, for instance there are ways to block a browser from allowing websites to get your location, which can usually be seen through settings.</p>
+    </center>
+</body>
+</html>
