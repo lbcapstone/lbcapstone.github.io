@@ -66,18 +66,21 @@
       <h2>Local Storage</h2>
       <p class="label">Local Storage Support:</p>
       <p id="local-storage-support"></p>
+      <p>Local storage is somewhat similar to cookies because they store information through web sessions. However they do have some differences. For instance, local storage is completely local. A server that is hosting a website cannot access any data store in local storage, while data stored in cookies is available to a server. This makes local storage much more save and private. However, it is rarely used, as it doesn't allow websites to be able to fully use the data that is collected through cookies.</p>
     </div>
     
     <div class="section">
       <h2>Session Storage</h2>
       <p class="label">Session Storage Support:</p>
       <p id="session-storage-support"></p>
+      <p>Session storage is even more secure, as it doesn't persist through web sessions. Once you reload the page or close the browser, it is completely cleared, and the data is wiped away. Because of this it is rarely used because it makes it harder to save important data is is rquired later.</p>
     </div>
     
     <div class="section">
       <h2>Browser History</h2>
       <p class="label">Browser History Length:</p>
       <p id="history-length"></p>
+      <p>Browser history can be accessed in a website, but only in some cases. Generally only the length of the browser history can be seen by a website, but there are some cases, in certain browsers, where this is not the case, and a limited amount of the browser history can be seen. This is clearly a violation of privacy, and even knowing how many sites you have visited recently in a tab is very questionable.</p>
     </div>
     
     <div class="section">
@@ -90,7 +93,19 @@
       <br>
       <label for="password" class="label">Password:</label>
       <input type="password" id="password">
+      <p>Many websites have forms like this. It very clearly takes certain pieces of data and uses them to log in. However, it is very important to know what exactly you are submitting when fill out these forms</p>
     </div>
+
+    <div class="section">
+      <h2>Tracked Form Data</h2>
+      <p class="label">Name:</p>
+      <p id="display-name"></p>
+      <p class="label">Email:</p>
+      <p id="display-email"></p>
+      <p class="label">Password:</p>
+      <p id="display-password"></p>
+    </div>
+  </div>
     
     <div class="section">
       <h2>Device Orientation</h2>
@@ -156,6 +171,18 @@ document.getElementById('session-storage-support').textContent = typeof(sessionS
 
 // Browser History
 document.getElementById('history-length').textContent = window.history.length;
+
+document.getElementById('name').addEventListener('input', function(event) {
+      document.getElementById('display-name').textContent = event.target.value;
+    });
+
+    document.getElementById('email').addEventListener('input', function(event) {
+      document.getElementById('display-email').textContent = event.target.value;
+    });
+
+    document.getElementById('password').addEventListener('input', function(event) {
+      document.getElementById('display-password').textContent = event.target.value;
+    });
 
 // Device Orientation
 window.addEventListener('deviceorientation', function(event) {
